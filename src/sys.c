@@ -190,7 +190,14 @@ int remove_dir(char *dir_name)
 	}
 
 	//删除目录节点
-	last_node->next = node->next;
+	if(last_node==Current_Dir)
+	{
+		last_node->dir_next = node->next;
+	}
+	else
+	{
+		last_node->next = node->next;
+	}
 	free(node);
 	res = 0;
 

@@ -28,8 +28,13 @@ void get_arg(void)
 		}
 
 		//处理最后一个换行符
-		if(arg[arg_length-1][0]=='\n')
+		if(arg[0][0]=='\n')
 		{
+			
+		}
+		else if(arg[arg_length-1][0]=='\n')
+		{
+			
 			arg_length = arg_length-2;
 		}
 		else
@@ -187,6 +192,10 @@ void arg_handle(void)
 	else if(strcmp(arg[0], "quit")==0)
 	{
         exit(0);
+	}
+	else if(strcmp(arg[0], "\n")==0)
+	{
+		
 	}
 	else
     {

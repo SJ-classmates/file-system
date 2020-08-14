@@ -152,7 +152,7 @@ int file_write(int fd, char *buffer, int size)
 	}
 
 	//将剩余的空间填充
-	real_size = (size>=BLOCK_SIZE-File_Desc_Table[fd]->remain_size)?BLOCK_SIZE-File_Desc_Table[fd]->remain_size:size;
+	real_size = (size>=File_Desc_Table[fd]->remain_size)?File_Desc_Table[fd]->remain_size:size;
 	memcpy(block_addr->data+(BLOCK_SIZE-File_Desc_Table[fd]->remain_size), buffer, real_size);
 	size      = size-real_size;
 	buffer    = buffer+File_Desc_Table[fd]->remain_size;//改变缓冲区指针位置
